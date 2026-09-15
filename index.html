@@ -1,7 +1,7 @@
 <title>Steering Scout</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Arabic:wght@400;500;600&family=Noto+Serif+Arabic:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Arabic:wght@400;500;600&family=Noto+Serif+Arabic:wght@400;500;600&family=Open+Sans:wght@400;500;600;700;900&display=swap">
 <style>
   :root {
     --ground: #F6F4EF;
@@ -891,6 +891,14 @@
   .frame-label .tag.rtl { background: var(--dusk); }
   .rtl-frame-wrap { display: flex; flex-direction: column; gap: 12px; max-width: 380px; }
 
+  /* PF-branded translation — Section xii */
+  .walkthrough.two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 720px) { .walkthrough.two-col { grid-template-columns: 1fr; } }
+  .pf-frames .phone { background: #F7F7FC; border-color: #E3E3E3; }
+  .pf-frames .frame-title { font-family: "Open Sans", sans-serif; font-style: normal; font-weight: 700; }
+
   /* Footer */
   footer.colophon {
     margin-top: 72px;
@@ -943,6 +951,7 @@
     <a href="#s9"><span>ix</span><small>Walkthrough</small></a>
     <a href="#s10"><span>x</span><small>Tradeoffs</small></a>
     <a href="#s11"><span>xi</span><small>Direction</small></a>
+    <a href="#s12"><span>xii</span><small>PF fit</small></a>
   </nav>
 
   <main>
@@ -2143,6 +2152,256 @@
 
         <div class="prose" style="margin-top:28px">
           <p><strong>Why this matters for the brief.</strong> The task calls out Arabic RTL and MENA code-switching as desirables. Treating direction as an emergent property of what the user says — not a preference they configure — is the difference between an internationalised product and one that reads as native to the region. It also compounds with the steering system: the provenance highlight vocabulary and the composer prediction pills work identically in both directions because they were designed for language, not for a specific axis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12 - PF-branded translation -->
+    <section class="chapter wide" id="s12">
+      <div class="col-main">
+        <p class="chapter-label"><span class="num">xii.</span> Living inside PF's identity</p>
+        <h2>The proposal, translated into PF's design system.</h2>
+        <div class="prose">
+          <p>I extracted PF's design system directly from <em>propertyfinder.ae/scout/v2</em> — Open Sans across the whole product, the secondary-07 purple <span style="color:#3A307F;font-weight:600">#3A307F</span> as the interactive accent, and shadows tinted with that same purple at graduated alphas. The proposal maps onto it cleanly. Even the provenance vocabulary — the one thing that could have felt foreign — translates: <em>stated</em> becomes a solid secondary-07 underline, <em>inferred</em> becomes a dashed secondary-05 <span style="color:#8C84CC;font-weight:600">#8C84CC</span> stroke. Same interaction, same intent, PF's palette.</p>
+        </div>
+
+        <h3>Token mapping.</h3>
+        <div style="overflow-x:auto">
+        <table class="bidi-table">
+          <thead>
+            <tr><th style="width:32%">In this case study</th><th style="width:28%">In PF's system</th><th>Note</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="be">Fraunces display serif</td>
+              <td class="bd">Open Sans 900, -0.5 tracking</td>
+              <td>PF has no display serif; Black weight + tight tracking carries the emphasis.</td>
+            </tr>
+            <tr>
+              <td class="be">JetBrains Mono utility labels</td>
+              <td class="bd">Open Sans 600 uppercase + tracking-wider</td>
+              <td>No monospace face needed — uppercase + letter-spacing does the job.</td>
+            </tr>
+            <tr>
+              <td class="be">Brick accent · CTA · send</td>
+              <td class="bd">Secondary-07 <span style="color:#3A307F">#3A307F</span></td>
+              <td>PF's actual CTA colour — reserved from the brand red on purpose.</td>
+            </tr>
+            <tr>
+              <td class="be">Amber solid underline (stated)</td>
+              <td class="bd">Secondary-07 solid <span style="color:#3A307F">#3A307F</span></td>
+              <td>Provenance stays in one family for coherence.</td>
+            </tr>
+            <tr>
+              <td class="be">Dashed dusk underline (inferred)</td>
+              <td class="bd">Secondary-05 dashed <span style="color:#8C84CC">#8C84CC</span></td>
+              <td>Lighter tone + dashed = the same weight decision, PF-native.</td>
+            </tr>
+            <tr>
+              <td class="be">Ivory ground</td>
+              <td class="bd">Secondary-01 <span style="color:#3A307F">#F7F7FC</span></td>
+              <td>Soft purple-tinted ground already in PF's tokens.</td>
+            </tr>
+            <tr>
+              <td class="be">Card drop shadows</td>
+              <td class="bd">shadow-1 · <span style="color:#3A307F">#3A307F14</span></td>
+              <td>Every elevation now carries the same purple — brand consistency, automatic.</td>
+            </tr>
+            <tr>
+              <td class="be">Pill radius (composer, chip)</td>
+              <td class="bd">radius-full <span style="color:#3A307F">9999px</span></td>
+              <td>PF uses full-pill for every interactive control.</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h3>The four frames, PF-native.</h3>
+        <div class="walkthrough two-col pf-frames">
+
+          <!-- PF Frame 1 · Empty state -->
+          <div class="frame">
+            <span class="caption">Frame 01 · Empty state · PF</span>
+            <span class="frame-title">Hi. I'm Scout. — in Open Sans Black.</span>
+            <svg class="phone" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg" aria-label="PF-branded empty state">
+              <rect width="375" height="812" fill="#F7F7FC"/>
+              <text x="24" y="28" fill="#333333" font-family="'Open Sans', sans-serif" font-size="11" font-weight="600">9:41</text>
+              <line x1="20" y1="68" x2="40" y2="68" stroke="#333333" stroke-width="1.5"/>
+              <line x1="20" y1="74" x2="40" y2="74" stroke="#333333" stroke-width="1.5"/>
+              <line x1="20" y1="80" x2="34" y2="80" stroke="#333333" stroke-width="1.5"/>
+              <text x="60" y="82" fill="#333333" font-family="'Open Sans', sans-serif" font-size="20" font-weight="700">Scout</text>
+              <rect x="112" y="66" width="38" height="18" rx="9" fill="#E7E5F4"/>
+              <text x="131" y="79" fill="#3A307F" font-family="'Open Sans', sans-serif" font-size="9" font-weight="700" letter-spacing="1" text-anchor="middle">BETA</text>
+              <circle cx="345" cy="74" r="14" fill="#E7E5F4"/>
+              <text x="345" y="79" fill="#3A307F" font-family="'Open Sans', sans-serif" font-size="12" font-weight="700" text-anchor="middle">R</text>
+              <rect x="16" y="118" width="343" height="46" rx="8" fill="#FFFFFF" stroke="#E3E3E3"/>
+              <rect x="16" y="118" width="3" height="46" fill="#3A307F"/>
+              <text x="30" y="136" fill="#707070" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" letter-spacing="1">CONTINUE · YESTERDAY</text>
+              <text x="30" y="152" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13" font-weight="500">3BR villa in Jumeirah under 5M, private pool</text>
+              <text x="345" y="146" fill="#3A307F" font-family="'Open Sans', sans-serif" font-size="18" text-anchor="end">›</text>
+              <text x="16" y="222" fill="#333333" font-family="'Open Sans', sans-serif" font-size="32" font-weight="900" letter-spacing="-0.5">Hi. I'm Scout.</text>
+              <text x="16" y="248" fill="#707070" font-family="'Open Sans', sans-serif" font-size="15">Ask me about UAE property.</text>
+              <text x="16" y="268" fill="#707070" font-family="'Open Sans', sans-serif" font-size="15">I'll figure out the details as we talk.</text>
+              <text x="16" y="312" fill="#707070" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" letter-spacing="1.4">OR START WITH ONE OF THESE</text>
+              <rect x="16" y="324" width="343" height="42" rx="8" fill="#FFFFFF" stroke="#E3E3E3"/>
+              <text x="28" y="350" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13" font-weight="500">Show me apartments under 2M, ready this year</text>
+              <rect x="16" y="372" width="343" height="42" rx="8" fill="#FFFFFF" stroke="#E3E3E3"/>
+              <text x="28" y="398" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13" font-weight="500">Best communities for a family villa</text>
+              <rect x="16" y="420" width="343" height="42" rx="8" fill="#FFFFFF" stroke="#E3E3E3"/>
+              <text x="28" y="446" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13" font-weight="500">New off-plan launches with 20% down</text>
+              <text x="16" y="492" fill="#707070" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" letter-spacing="1.4">IN THE MARKET THIS WEEK</text>
+              <rect x="16" y="504" width="220" height="60" rx="8" fill="#E7E5F4"/>
+              <text x="28" y="524" fill="#EA3934" font-family="'Open Sans', sans-serif" font-size="9" font-weight="700" letter-spacing="1">MARINA · -2.1%</text>
+              <text x="28" y="542" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13" font-style="italic" font-weight="500">"Marina prices dropped 2%.</text>
+              <text x="28" y="558" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13" font-style="italic" font-weight="500">Should we compare?"</text>
+              <rect x="248" y="504" width="111" height="60" rx="8" fill="#FEF5F5"/>
+              <text x="258" y="524" fill="#3A307F" font-family="'Open Sans', sans-serif" font-size="9" font-weight="700" letter-spacing="1">DUBAI STH · +29</text>
+              <text x="258" y="542" fill="#333333" font-family="'Open Sans', sans-serif" font-size="12" font-style="italic" font-weight="500">"29 new</text>
+              <text x="258" y="558" fill="#333333" font-family="'Open Sans', sans-serif" font-size="12" font-style="italic" font-weight="500">projects."</text>
+              <line x1="0" y1="692" x2="375" y2="692" stroke="#E3E3E3"/>
+              <text x="16" y="712" fill="#707070" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" letter-spacing="1.4">ASK SCOUT</text>
+              <rect x="16" y="722" width="343" height="52" rx="26" fill="#FFFFFF" stroke="#E3E3E3"/>
+              <text x="42" y="754" fill="#3A307F" font-family="'Open Sans', sans-serif" font-size="11" font-weight="700" text-anchor="middle">EN</text>
+              <line x1="66" y1="734" x2="66" y2="762" stroke="#E3E3E3"/>
+              <text x="76" y="753" fill="#707070" font-family="'Open Sans', sans-serif" font-size="13" font-style="italic">Try: villa in Jumeirah…</text>
+              <g transform="translate(277,748)">
+                <rect x="-5" y="-10" width="10" height="14" rx="5" fill="none" stroke="#333333" stroke-width="1.5"/>
+                <path d="M-8,-2 Q-8,7 0,7 Q8,7 8,-2" fill="none" stroke="#333333" stroke-width="1.5"/>
+                <line x1="0" y1="7" x2="0" y2="12" stroke="#333333" stroke-width="1.5"/>
+              </g>
+              <circle cx="327" cy="748" r="18" fill="#3A307F"/>
+              <text x="327" y="754" fill="#FFFFFF" font-family="'Open Sans', sans-serif" font-size="18" text-anchor="middle" font-weight="600">↑</text>
+              <rect x="130" y="792" width="115" height="4" rx="2" fill="#333333"/>
+            </svg>
+            <span class="frame-desc">Open Sans 900 for the greeting, #3A307F for every interactive control, purple-tinted card shadows, pill composer with EN chip in the accent. The market seeds keep their conversational voice but shift to PF's chip tokens.</span>
+          </div>
+
+          <!-- PF Frame 2 · Read -->
+          <div class="frame">
+            <span class="caption">Frame 02 · Read · PF</span>
+            <span class="frame-title">Provenance in PF's own duotone.</span>
+            <svg class="phone" viewBox="0 0 375 640" xmlns="http://www.w3.org/2000/svg" aria-label="PF-branded Read frame">
+              <rect width="375" height="640" fill="#F7F7FC"/>
+              <rect x="0" y="0" width="375" height="44" fill="#F7F7FC"/>
+              <text x="188" y="27" fill="#707070" font-family="'Open Sans', sans-serif" font-size="10" text-anchor="middle" font-weight="600">9:41 · Scout · Beta</text>
+              <line x1="0" y1="44" x2="375" y2="44" stroke="#E3E3E3"/>
+              <rect x="60" y="66" width="290" height="66" rx="12" fill="#E7E5F4"/>
+              <text x="72" y="88" fill="#333333" font-family="'Open Sans', sans-serif" font-size="12" font-weight="500">Looking for a 2BR in Dubai Marina,</text>
+              <text x="72" y="104" fill="#333333" font-family="'Open Sans', sans-serif" font-size="12" font-weight="500">budget around 2M, ready to move in.</text>
+              <text x="16" y="158" fill="#707070" font-family="'Open Sans', sans-serif" font-size="9" font-weight="700" letter-spacing="1.4">SCOUT</text>
+              <text x="16" y="182" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">176 listings in</text>
+              <text x="106" y="182" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13" font-weight="500">Dubai Marina</text>
+              <line x1="106" y1="185" x2="176" y2="185" stroke="#3A307F" stroke-width="2.5"/>
+              <text x="178" y="182" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">under</text>
+              <text x="16" y="202" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13" font-weight="500">2M AED</text>
+              <line x1="16" y1="205" x2="60" y2="205" stroke="#3A307F" stroke-width="2.5"/>
+              <text x="63" y="202" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">— mostly</text>
+              <text x="120" y="202" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">furnished</text>
+              <line x1="120" y1="206" x2="176" y2="206" stroke="#8C84CC" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <text x="180" y="202" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">and</text>
+              <text x="208" y="202" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13" font-weight="500">ready.</text>
+              <line x1="208" y1="205" x2="240" y2="205" stroke="#3A307F" stroke-width="2.5"/>
+              <line x1="16" y1="230" x2="16" y2="430" stroke="#E3E3E3" stroke-width="2"/>
+              <text x="28" y="248" fill="#333333" font-family="'Open Sans', sans-serif" font-size="14" font-weight="700">The Zen Tower</text>
+              <text x="28" y="266" fill="#707070" font-family="'Open Sans', sans-serif" font-size="11">1,474 sqft · AED 1.7M</text>
+              <text x="28" y="298" fill="#333333" font-family="'Open Sans', sans-serif" font-size="14" font-weight="700">Marina Crown</text>
+              <text x="28" y="316" fill="#707070" font-family="'Open Sans', sans-serif" font-size="11">1,494 sqft · AED 1.9M</text>
+              <text x="28" y="348" fill="#333333" font-family="'Open Sans', sans-serif" font-size="14" font-weight="700">Marina Diamond 2</text>
+              <text x="28" y="366" fill="#707070" font-family="'Open Sans', sans-serif" font-size="11">1,355 sqft · AED 1.6M</text>
+              <line x1="140" y1="202" x2="240" y2="470" stroke="#3A307F" stroke-width="0.8" stroke-dasharray="2 3"/>
+              <rect x="184" y="470" width="176" height="56" rx="8" fill="#3A307F"/>
+              <text x="192" y="490" fill="#FFFFFF" font-family="'Open Sans', sans-serif" font-size="9" font-weight="700" letter-spacing="1">INFERRED</text>
+              <text x="192" y="506" fill="#FFFFFF" font-family="'Open Sans', sans-serif" font-size="10.5">"furnished" — Scout guessed</text>
+              <text x="192" y="518" fill="#FFFFFF" font-family="'Open Sans', sans-serif" font-size="10.5">this. Tap to correct.</text>
+              <line x1="0" y1="580" x2="375" y2="580" stroke="#E3E3E3"/>
+              <rect x="16" y="596" width="298" height="28" rx="14" fill="#FFFFFF" stroke="#E3E3E3"/>
+              <text x="26" y="614" fill="#707070" font-family="'Open Sans', sans-serif" font-size="12">Reply…</text>
+              <circle cx="336" cy="610" r="14" fill="#3A307F"/>
+              <text x="336" y="614" fill="#FFFFFF" font-family="'Open Sans', sans-serif" font-size="12" text-anchor="middle" font-weight="600">↑</text>
+            </svg>
+            <span class="frame-desc">Solid <span style="color:#3A307F;font-weight:600">#3A307F</span> underline for stated, dashed <span style="color:#8C84CC;font-weight:600">#8C84CC</span> for inferred. Same family, different treatment. The INFERRED annotation now uses PF's own accent as the callout background.</span>
+          </div>
+
+          <!-- PF Frame 3 · Correct -->
+          <div class="frame">
+            <span class="caption">Frame 03 · Correct · PF</span>
+            <span class="frame-title">Long-press unsay, in PF's paper card.</span>
+            <svg class="phone" viewBox="0 0 375 640" xmlns="http://www.w3.org/2000/svg" aria-label="PF-branded Correct frame">
+              <rect width="375" height="640" fill="#F7F7FC"/>
+              <rect x="0" y="0" width="375" height="44" fill="#F7F7FC"/>
+              <text x="188" y="27" fill="#707070" font-family="'Open Sans', sans-serif" font-size="10" text-anchor="middle" font-weight="600">9:41 · Scout · Beta</text>
+              <line x1="0" y1="44" x2="375" y2="44" stroke="#E3E3E3"/>
+              <g opacity="0.35">
+                <rect x="60" y="66" width="290" height="66" rx="12" fill="#E7E5F4"/>
+                <text x="72" y="88" fill="#333333" font-family="'Open Sans', sans-serif" font-size="12" font-weight="500">Looking for a 2BR in Dubai Marina,</text>
+                <text x="72" y="104" fill="#333333" font-family="'Open Sans', sans-serif" font-size="12" font-weight="500">budget around 2M, ready to move in.</text>
+                <text x="16" y="158" fill="#707070" font-family="'Open Sans', sans-serif" font-size="9" font-weight="700" letter-spacing="1.4">SCOUT</text>
+                <text x="16" y="182" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">176 listings in Dubai Marina</text>
+                <text x="16" y="202" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">2M AED — mostly</text>
+              </g>
+              <rect x="116" y="192" width="66" height="20" rx="4" fill="#D1CFED"/>
+              <text x="120" y="207" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">furnished</text>
+              <line x1="120" y1="211" x2="176" y2="211" stroke="#8C84CC" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <rect x="16" y="240" width="343" height="120" rx="12" fill="#FFFFFF" stroke="#E3E3E3"/>
+              <rect x="16" y="240" width="4" height="120" fill="#3A307F"/>
+              <text x="30" y="260" fill="#707070" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" letter-spacing="1.4">INFERRED FROM</text>
+              <text x="30" y="284" fill="#333333" font-family="'Open Sans', sans-serif" font-size="12" font-weight="600">"ready to move in"</text>
+              <text x="30" y="308" fill="#707070" font-family="'Open Sans', sans-serif" font-size="11">Scout expanded this to "furnished + move-in ready."</text>
+              <text x="30" y="326" fill="#707070" font-family="'Open Sans', sans-serif" font-size="11">The furnishing part wasn't in your words.</text>
+              <text x="30" y="349" fill="#3A307F" font-family="'Open Sans', sans-serif" font-size="12" font-weight="700">Unsay "furnished"</text>
+              <text x="180" y="349" fill="#707070" font-family="'Open Sans', sans-serif" font-size="12">Keep it</text>
+              <rect x="16" y="380" width="343" height="30" rx="8" fill="#F7F7FC" stroke="#E3E3E3"/>
+              <text x="30" y="399" fill="#333333" font-family="'Open Sans', sans-serif" font-size="11">→ 214 listings after unsay · <tspan fill="#39A76D" font-weight="700">+38</tspan></text>
+              <line x1="0" y1="580" x2="375" y2="580" stroke="#E3E3E3"/>
+              <rect x="16" y="596" width="298" height="28" rx="14" fill="#FFFFFF" stroke="#E3E3E3"/>
+              <text x="26" y="614" fill="#707070" font-family="'Open Sans', sans-serif" font-size="12">Reply…</text>
+              <circle cx="336" cy="610" r="14" fill="#3A307F"/>
+              <text x="336" y="614" fill="#FFFFFF" font-family="'Open Sans', sans-serif" font-size="12" text-anchor="middle" font-weight="600">↑</text>
+            </svg>
+            <span class="frame-desc">The provenance card uses PF's card token — white bg, 12px radius, #E3E3E3 border, purple accent bar on the left. The delta uses the success green from PF's semantic layer.</span>
+          </div>
+
+          <!-- PF Frame 4 · Steer -->
+          <div class="frame">
+            <span class="caption">Frame 04 · Steer · PF</span>
+            <span class="frame-title">Predictions as PF's quick-search pills.</span>
+            <svg class="phone" viewBox="0 0 375 640" xmlns="http://www.w3.org/2000/svg" aria-label="PF-branded Steer frame">
+              <rect width="375" height="640" fill="#F7F7FC"/>
+              <rect x="0" y="0" width="375" height="44" fill="#F7F7FC"/>
+              <text x="188" y="27" fill="#707070" font-family="'Open Sans', sans-serif" font-size="10" text-anchor="middle" font-weight="600">9:41 · Scout · Beta</text>
+              <line x1="0" y1="44" x2="375" y2="44" stroke="#E3E3E3"/>
+              <g opacity="0.5">
+                <text x="16" y="82" fill="#707070" font-family="'Open Sans', sans-serif" font-size="9" font-weight="700" letter-spacing="1.4">SCOUT</text>
+                <text x="16" y="106" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">214 listings after removing</text>
+                <text x="16" y="124" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">"furnished." Marina Crown is</text>
+                <text x="16" y="142" fill="#333333" font-family="'Open Sans', sans-serif" font-size="13">the largest at 1,494 sqft.</text>
+              </g>
+              <text x="16" y="252" fill="#707070" font-family="'Open Sans', sans-serif" font-size="10" font-weight="700" letter-spacing="1.4">TRY A NEXT MOVE</text>
+              <rect x="16" y="264" width="188" height="34" rx="17" fill="#FFFFFF" stroke="#D1CFED"/>
+              <text x="30" y="285" fill="#3A307F" font-family="'Open Sans', sans-serif" font-size="12.5" font-weight="500">Widen budget to 2.2M</text>
+              <rect x="16" y="308" width="168" height="34" rx="17" fill="#FFFFFF" stroke="#D1CFED"/>
+              <text x="30" y="329" fill="#3A307F" font-family="'Open Sans', sans-serif" font-size="12.5" font-weight="500">Add "sea view"</text>
+              <rect x="16" y="352" width="216" height="34" rx="17" fill="#FFFFFF" stroke="#D1CFED"/>
+              <text x="30" y="373" fill="#3A307F" font-family="'Open Sans', sans-serif" font-size="12.5" font-weight="500">Avoid ground &amp; podium floors</text>
+              <rect x="16" y="410" width="298" height="40" rx="20" fill="#FFFFFF" stroke="#3A307F" stroke-width="1.5"/>
+              <text x="30" y="435" fill="#707070" font-family="'Open Sans', sans-serif" font-size="12" font-style="italic">Or type your own…</text>
+              <circle cx="336" cy="430" r="18" fill="#3A307F"/>
+              <text x="336" y="435" fill="#FFFFFF" font-family="'Open Sans', sans-serif" font-size="14" text-anchor="middle" font-weight="600">↑</text>
+              <rect x="0" y="470" width="375" height="170" fill="#EEEBE1"/>
+              <g fill="#D1CFED">
+                <rect x="10" y="484" width="28" height="30" rx="4"/><rect x="42" y="484" width="28" height="30" rx="4"/><rect x="74" y="484" width="28" height="30" rx="4"/><rect x="106" y="484" width="28" height="30" rx="4"/><rect x="138" y="484" width="28" height="30" rx="4"/><rect x="170" y="484" width="28" height="30" rx="4"/><rect x="202" y="484" width="28" height="30" rx="4"/><rect x="234" y="484" width="28" height="30" rx="4"/><rect x="266" y="484" width="28" height="30" rx="4"/><rect x="298" y="484" width="28" height="30" rx="4"/><rect x="330" y="484" width="28" height="30" rx="4"/>
+                <rect x="10" y="520" width="28" height="30" rx="4"/><rect x="42" y="520" width="28" height="30" rx="4"/><rect x="74" y="520" width="28" height="30" rx="4"/><rect x="106" y="520" width="28" height="30" rx="4"/><rect x="138" y="520" width="28" height="30" rx="4"/><rect x="170" y="520" width="28" height="30" rx="4"/><rect x="202" y="520" width="28" height="30" rx="4"/><rect x="234" y="520" width="28" height="30" rx="4"/><rect x="266" y="520" width="28" height="30" rx="4"/><rect x="298" y="520" width="28" height="30" rx="4"/><rect x="330" y="520" width="28" height="30" rx="4"/>
+                <rect x="10" y="556" width="28" height="30" rx="4"/><rect x="42" y="556" width="28" height="30" rx="4"/><rect x="74" y="556" width="28" height="30" rx="4"/><rect x="106" y="556" width="28" height="30" rx="4"/><rect x="138" y="556" width="28" height="30" rx="4"/><rect x="170" y="556" width="28" height="30" rx="4"/><rect x="202" y="556" width="28" height="30" rx="4"/><rect x="234" y="556" width="28" height="30" rx="4"/><rect x="266" y="556" width="28" height="30" rx="4"/><rect x="298" y="556" width="28" height="30" rx="4"/><rect x="330" y="556" width="28" height="30" rx="4"/>
+              </g>
+            </svg>
+            <span class="frame-desc">Predictions render as PF's existing quick-search pills — white bg, light-purple border, secondary-07 text — reusing the exact chip vocabulary already on the entry screen. The composer focus ring uses the accent purple.</span>
+          </div>
+
+        </div>
+
+        <div class="prose" style="margin-top:32px">
+          <p><strong>What this proves.</strong> The proposal doesn't ask PF to adopt a new visual language to ship. Every design decision maps to a token that already exists — or, in the two places PF's system is thin (no display serif, no monospace face), Open Sans covers cleanly using weight and tracking. If Scout's team wanted to try one concept in production overnight, it can wear the existing UI straight through.</p>
+          <p>Related: the audit's biggest fix — the hero contrast defect (finding A1) — is a one-line change. The token <code>--gradient-hero-overlay</code> already exists in <code>:root</code> and is currently set to <code>none</code>. Setting it to <code>linear-gradient(180deg, transparent, rgba(0,0,0,0.55))</code> resolves the failure without a single new token.</p>
         </div>
       </div>
     </section>
