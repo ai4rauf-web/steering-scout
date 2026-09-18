@@ -4,6 +4,7 @@
 
 - Prototype: https://scout-app-five.vercel.app (best on a phone)
 - Case study: https://steering-scout.vercel.app
+- FigJam board (research, audit, exploration, wireframes): https://www.figma.com/board/9JpWHm8YZRxyR9XY9PzZg6/ConvLLM_PF?node-id=0-1
 
 ---
 
