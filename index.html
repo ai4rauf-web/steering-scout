@@ -902,6 +902,17 @@
   .pf-frames .phone { background: #F7F7FC; border-color: #E3E3E3; }
   .pf-frames .frame-title { font-family: "Open Sans", sans-serif; font-style: normal; font-weight: 700; }
 
+  /* Prototype film */
+  .film { margin: 24px 0 8px; }
+  .film video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #F7F7FC; border: 1px solid var(--rule); }
+  .film figcaption { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--muted); margin-top: 10px; max-width: 70ch; line-height: 1.5; }
+  .proto-link { display: inline-flex; align-items: center; gap: 10px; margin: 8px 0 4px; padding: 12px 20px; background: var(--brick); color: #F6F4EF; text-decoration: none; font-weight: 600; font-size: 15px; }
+  .proto-link:hover, .proto-link:focus-visible { filter: brightness(1.08); }
+  .try { margin: 18px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; font-size: 14px; color: var(--ink-2); max-width: 78ch; }
+  @media (max-width: 720px) { .try { grid-template-columns: 1fr; } }
+  .try li { padding-left: 14px; border-left: 2px solid var(--rule); line-height: 1.45; }
+  .try b { color: var(--ink); font-weight: 600; }
+
   /* Footer */
   footer.colophon {
     margin-top: 72px;
@@ -994,6 +1005,7 @@
     <a href="#s10"><span>x</span><small>Tradeoffs</small></a>
     <a href="#s11"><span>xi</span><small>Direction</small></a>
     <a href="#s12"><span>xii</span><small>PF fit</small></a>
+    <a href="#s13"><span>xiii</span><small>Prototype</small></a>
   </nav>
 
   <main>
@@ -2031,8 +2043,8 @@
           <li>
             <span class="lm-num">02</span>
             <div class="lm-body">
-              <div class="lm-title">Mid-conversation switch — offer, don't force.</div>
-              <div class="lm-desc">User has been chatting in English, then sends an Arabic message. Keep the current layout. Under Scout's next reply, show one subtle inline chip: <em>"Switch to Arabic layout?"</em> One tap flips. Ignoring keeps LTR. Never flip silently mid-flow — the disorientation cost is too high for the small win.</div>
+              <div class="lm-title">Mid-conversation switch — direction belongs to the turn.</div>
+              <div class="lm-desc">My first answer here was “keep the layout, offer a switch.” It doesn't survive a thread that goes English → 中文 → العربية. The better rule: each question-and-answer renders in its own language and direction. The Arabic turn is RTL; the English and Chinese turns above it stay exactly as written. Nothing already on screen ever moves, so there is nothing to be disoriented by — and nothing to ask permission for.</div>
             </div>
           </li>
           <li>
@@ -2057,6 +2069,28 @@
             </div>
           </li>
         </ol>
+
+        <h3>Three languages, one thread.</h3>
+        <div class="prose">
+          <p>A Dubai buyer might open in English, add a detail in Chinese, then ask the next question in Arabic. Testing the live product showed what goes wrong today: the reply comes back half-translated, with English labels inside Arabic sentences. Five rules came out of building this case into the prototype.</p>
+        </div>
+        <div style="overflow-x:auto">
+        <table class="bidi-table">
+          <thead>
+            <tr><th style="width:30%">Rule</th><th>What it means on screen</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="be">Direction belongs to the turn</td><td>Each turn carries its own <code>lang</code> and <code>dir</code>. English → 中文 changes no layout at all; only a move into Arabic mirrors, and only for that turn.</td></tr>
+            <tr><td class="be">Scout follows you, silently</td><td>Reply, labels, thinking lines, Refine rows and the provenance card localise per turn. Listing names and AED prices stay Latin — they are identifiers, not words.</td></tr>
+            <tr><td class="be">Navigation stays put</td><td>I first mirrored the header too, and reversed it on sight: Back jumping sides mid-thread breaks muscle memory, and the phone's language hasn't changed. Only where you read and write follows the language — the turns and the composer.</td></tr>
+            <tr><td class="be">One tap back, at the point of change</td><td>Where the language switches, a marker says so and offers <em>Reply in English instead</em> — the language the thread began in. It holds until undone. This covers misdetection, and people who write Arabic but want English answers.</td></tr>
+            <tr><td class="be">What you said carries across languages</td><td>“Under 2M”, said in English, is still <span class="stated">stated</span> in the Arabic answer. The provenance card quotes your words in the script you wrote them in. In the demo thread this is where it pays off: asked in Arabic for three bedrooms, Scout quietly <span class="inferred">raised the budget to 2.8M</span> — and the card surfaces it, quoting the English “under 2M” it overrode.</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="prose">
+          <p>One craft detail worth naming: letter-spacing is removed inside Arabic. It is a joined script, and tracking pulls the letters apart — the uppercase-and-tracked label style that works in Latin quietly breaks Arabic words.</p>
+        </div>
 
         <h3>What flips, and what doesn't.</h3>
         <div style="overflow-x:auto">
@@ -2444,6 +2478,40 @@
         <div class="prose" style="margin-top:32px">
           <p><strong>What this proves.</strong> The proposal doesn't ask PF to adopt a new visual language to ship. Every design decision maps to a token that already exists — or, in the two places PF's system is thin (no display serif, no monospace face), Open Sans covers cleanly using weight and tracking. If Scout's team wanted to try one concept in production overnight, it can wear the existing UI straight through.</p>
           <p>Related: the audit's biggest fix — the hero contrast defect (finding A1) — is a one-line change. The token <code>--gradient-hero-overlay</code> already exists in <code>:root</code> and is currently set to <code>none</code>. Setting it to <code>linear-gradient(180deg, transparent, rgba(0,0,0,0.55))</code> resolves the failure without a single new token.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 13 - The prototype -->
+    <section class="chapter wide" id="s13">
+      <div class="col-main">
+        <p class="chapter-label"><span class="num">xiii.</span> The prototype</p>
+        <h2>It runs. Open it on your phone.</h2>
+        <div class="prose">
+          <p>Everything above is built as a working prototype: seven states at a true 375&nbsp;pixels, in Property Finder's own tokens, in light and dark. On a laptop it sits in a phone frame with a rail to jump between states; on a phone the frame drops away and it behaves like an app.</p>
+          <p><a class="proto-link" href="https://scout-app-five.vercel.app">Open the Scout prototype →</a></p>
+        </div>
+
+        <figure class="film">
+          <video autoplay muted loop playsinline preload="metadata" poster="media/voice-sphere-poster.jpg" aria-label="Scout's voice sphere: a sphere of particles, purple to red, breathing in a speech rhythm around a microphone">
+            <source src="media/voice-sphere.mp4" type="video/mp4">
+          </video>
+          <figcaption>Scout's voice presence, rendered from the prototype's own sphere maths — the same 300 points, tilt and wobble, coloured by PF's brand gradient. A 12-second seamless loop; the energy rises and falls in three phrases, like someone speaking.</figcaption>
+        </figure>
+
+        <div class="prose">
+          <p><strong>Why voice leads.</strong> The audit's clearest behavioural note was that people arrive wanting to talk, and the product offers “type and send.” Speaking runs at roughly 150 words a minute against 40 for typing, so a detailed brief takes under 90 seconds instead of five minutes, with fewer errors. Voice therefore sits in the composer with the same weight as send, and takes the whole screen when used: a sphere that visibly listens, a transcript you can watch forming, and a confirm step so nothing is sent that you didn't say.</p>
+        </div>
+
+        <ul class="try">
+          <li><b>Hold a dashed phrase</b> in any answer. The card quotes the words Scout inferred from; <em>Unsay</em> drops the assumption and re-answers.</li>
+          <li><b>Tap the waveform</b> for voice: listening, then confirm and send.</li>
+          <li><b>Tap “Three languages”</b> in the rail: one thread in English, Chinese and Arabic, each turn in its own direction.</li>
+          <li><b>Tap your avatar</b> for conversation history; pick one to resume it.</li>
+        </ul>
+
+        <div class="prose" style="margin-top:24px">
+          <p><strong>What is simulated.</strong> Answers are scripted rather than generated, because provenance needs structure — each phrase records whether you said it or Scout assumed it. Voice transcription is simulated so the demo is repeatable. Listing photos are illustrative renders, not the named buildings.</p>
         </div>
       </div>
     </section>
