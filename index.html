@@ -2072,7 +2072,7 @@
 
         <h3>Three languages, one thread.</h3>
         <div class="prose">
-          <p>A Dubai buyer might open in English, add a detail in Chinese, then ask the next question in Arabic. Testing the live product showed what goes wrong today: the reply comes back half-translated, with English labels inside Arabic sentences. Five rules came out of building this case into the prototype.</p>
+          <p>A Dubai buyer might open in English, add a detail in Chinese, then ask the next question in Arabic. Testing the live product showed what goes wrong today: the reply comes back half-translated, with English labels inside Arabic sentences. Six rules came out of building this case into the prototype.</p>
         </div>
         <div style="overflow-x:auto">
         <table class="bidi-table">
@@ -2081,7 +2081,8 @@
           </thead>
           <tbody>
             <tr><td class="be">Direction belongs to the turn</td><td>Each turn carries its own <code>lang</code> and <code>dir</code>. English → 中文 changes no layout at all; only a move into Arabic mirrors, and only for that turn.</td></tr>
-            <tr><td class="be">Scout follows you, silently</td><td>Reply, labels, thinking lines, Refine rows and the provenance card localise per turn. Listing names and AED prices stay Latin — they are identifiers, not words.</td></tr>
+            <tr><td class="be">Scout follows you, silently</td><td>Reply, labels, thinking lines, Refine rows and the provenance card localise per turn. So do prices (2.7 مليون درهم) and grammar: Arabic nouns agree with their count — ٤ شقق but ٢٣ شقة — so the noun is chosen by the number beside it, never fixed.</td></tr>
+            <tr><td class="be">Names: localised first, Latin kept</td><td>A listing shows its name in the reply language (<span lang="ar">مارينا جيت 1</span>) with the Latin name small beneath it (Marina Gate 1). A reader needs a name they can read — but the Latin one is what is on the building, the contract and the map, and what a broker will say, so it is never replaced. One listing ID, one canonical name, one localised name per language; where no official localised name exists, only the Latin shows.</td></tr>
             <tr><td class="be">Navigation stays put</td><td>I first mirrored the header too, and reversed it on sight: Back jumping sides mid-thread breaks muscle memory, and the phone's language hasn't changed. Only where you read and write follows the language — the turns and the composer.</td></tr>
             <tr><td class="be">One tap back, at the point of change</td><td>Where the language switches, a marker says so and offers <em>Reply in English instead</em> — the language the thread began in. It holds until undone. This covers misdetection, and people who write Arabic but want English answers.</td></tr>
             <tr><td class="be">What you said carries across languages</td><td>“Under 2M”, said in English, is still <span class="stated">stated</span> in the Arabic answer. The provenance card quotes your words in the script you wrote them in. In the demo thread this is where it pays off: asked in Arabic for three bedrooms, Scout quietly <span class="inferred">raised the budget to 2.8M</span> — and the card surfaces it, quoting the English “under 2M” it overrode.</td></tr>
